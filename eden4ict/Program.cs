@@ -13,7 +13,7 @@ namespace eden4ict
     internal class Program
     {
         static List<string> excludeStr = new List<string> { ".o", "~", "discharge", "." };
-        static List<string> startStr = new List<string> { "resistor", "capacitor", "diode", "jumper", "inductor" };
+        static List<string> startStr = new List<string> { "resistor", "capacitor.fr1024", "capacitor.fr128", "capacitor.fr8192", "capacitor", "diode", "jumper", "inductor" };
         static string[] delimiterChars = { " ", ",", ", " };
 
         [STAThread]
