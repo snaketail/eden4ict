@@ -12,6 +12,17 @@ namespace eden4ict
         public uint ed { get; set; } = 0;
         public uint en { get; set; } = 0;
         public uint eden { get; set; } = 0;
-        public uint MyProperty { get { return normal + ed + en + eden; } }
+        public uint total { get { return normal + ed + en + eden; } }
+
+        public string Name
+        {
+            get
+            {
+                if (SecType == "*")
+                    return PriType;
+                else
+                    return PriType + '[' + SecType + ']';
+            }
+        }
     }
 }
