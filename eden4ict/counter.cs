@@ -24,5 +24,32 @@ namespace eden4ict
                     return PriType + '[' + SecType + ']';
             }
         }
+
+        public double  s3Time 
+        { 
+            get
+            {
+                return (timeLookupTable.getTestTime(ict3070Series.series3, Name, "ED") * ed +
+                    timeLookupTable.getTestTime(ict3070Series.series3, Name, "EN") * en+
+                    timeLookupTable.getTestTime(ict3070Series.series3, Name, "ED&EN") * eden+
+                    timeLookupTable.getTestTime(ict3070Series.series3, Name, "Normal") * normal)/1000;
+            }
+        }
+
+        public double s6Time
+        {
+            get
+            {
+                return (timeLookupTable.getTestTime(ict3070Series.series6, Name, "ED") * ed+
+                    timeLookupTable.getTestTime(ict3070Series.series6, Name, "EN") * en +
+                    timeLookupTable.getTestTime(ict3070Series.series6, Name, "ED&EN") * eden +
+                    timeLookupTable.getTestTime(ict3070Series.series6, Name, "Normal") * normal)/1000;
+            }
+        }
+
+        public double deltaTime 
+        { 
+            get  { return s3Time - s6Time; }
+        }
     }
 }

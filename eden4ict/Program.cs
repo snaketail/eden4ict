@@ -14,13 +14,13 @@ namespace eden4ict
 
         static List<string> componentTypeStrList = new List<string> 
         {
+            "jumper",
             "resistor", 
-            "capacitor.fr1024", 
-            "capacitor.fr128", 
+            "capacitor.fr128",
+            "capacitor.fr1024",
             "capacitor.fr8192", 
-            "diode", 
-            "jumper", 
-            "inductor" 
+            "inductor",
+            "diode"
         };
 
         [STAThread]
@@ -62,21 +62,20 @@ namespace eden4ict
             #endregion
 
             #region Generate Summary.csv
-            summaryStr.AppendLine(string.Format("{0},{1},{2}, {3}, {4}, {5}", "Component", "Normal", "EN", "ED", "ED&EN", "Total"));
-            foreach (var  counter in componentCounters)
+            summaryStr.AppendLine(string.Format("{0},{1},{2}, {3}, {4}, {5}, {6}, {7}, {8}", "Component", "Normal", "EN", "ED", "ED&EN", "Total" , "S3 Time", "S6 Time", "time delta"));
+            foreach (var counter in componentCounters)
             {
-                summaryStr.AppendLine(string.Format("{0},{1},{2}, {3}, {4}, {5}", counter.Name, counter.normal, counter.en, counter.ed, counter.eden, counter.total));
+                summaryStr.AppendLine(string.Format("{0},{1},{2}, {3}, {4}, {5}, {6}, {7}, {8}", 
+                    counter.Name, counter.normal, counter.en, counter.ed, counter.eden, counter.total, counter.s3Time, counter.s6Time, counter.deltaTime));
             }
 
             File.WriteAllText(summaryPath, summaryStr.ToString());
+            #endregion
 
             Console.WriteLine("File processing completed, open summary file? Type 'no' to exit without Opening.");
             string openfile = Console.ReadLine();
             if (openfile != "no" && openfile != "NO" && openfile != "No")
                 OpenWithDefaultProgram(summaryPath);
-
-            #endregion
-
 
         }
 

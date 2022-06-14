@@ -110,7 +110,6 @@ namespace eden4ict
 
         static string checkEdEn(ref int index, string name, string line, List<counter> Counters)
         {
-            string result;
             string type=null;
             string edStr = " ", enStr = " ", edenStr = " ", normalStr = " ";
             string[] words = line.Split(delimiterChars, System.StringSplitOptions.RemoveEmptyEntries);
@@ -145,9 +144,8 @@ namespace eden4ict
                 thiscounter.normal++;
             }
 
-            result = string.Format("{0},{1},{2}, {3}, {4}, {5}, {6}", index, name, type, normalStr, enStr, edStr, edenStr);
             index++;
-            return result;
+            return string.Format("{0},{1},{2}, {3}, {4}, {5}, {6}", index, name, type, normalStr, enStr, edStr, edenStr);
         }
 
         /// <summary>
